@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<title>{{title}}</title>
+<meta charset="UTF-8">
+<meta name="description" content= "{{description}}" >
+{{keywords | safe}}
+{% if og_image: %}
+<meta property="og:image" content="{{og_image}}">
+{% endif %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+
+<!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"-->
+<link rel="stylesheet" href="{{ url_for('static', path='/css/rate.css') }}">
+  
+<style>
+  body, html {
+    height: 100%;
+    font-family: "Inconsolata", sans-serif;
+  }
+  h1{
+    color: #2980b9;
+    font-weight: 900;
+  }
+  h2{
+    color: #2980b9;
+    font-weight: 700;
+  }
+  img{
+    object-fit: scale-down;
+    max-width: 100%;
+  }
+
+</style>
+  
+</head>
+<body>
+
+  <form action="/confirm" target="_blank" method="post">
+
+  {% for key in waiting_dict.keys():%}
+    <h1>----------------------------------Check---------------------------------------</h1>
+    <input name="check_list"              type="checkbox" id="{{waiting_dict[key]['name']}}" value="{{key}}">
+    <label for="{{waiting_dict[key]['name']}}">
+      Name: {{waiting_dict[key]['name']}} </br>
+      Url: {{waiting_dict[key]['url']}} </br>
+      HTML type: {{waiting_dict[key]['html_type']}} </br>
+
+      {% if waiting_dict[key]['thumbnail_link'] != "": %}
+      Thumnail: 
+      <img src="{{waiting_dict[key]['thumbnail_link']}}" width="200" height="200">
+      {% elif waiting_dict[key]['slide_show_link'] != "": %}
+      Slideshow link: 
+      <img src="{{waiting_dict[key]['slide_show_link']}}" width="650" height="340">
+      {% endif %} </br>
+
+      Description: {{waiting_dict[key]['description']}} </br>
+      Tags: {{waiting_dict[key]['tags']}} </br>
+
+    </label></br>
+
+    <a href="/demo{{key}}" target="_blank" >Check content</a></br>
+    </br>
+  {% endfor%}
+
+  <h4>Check description trước khi xác nhận</h4>
+    <button type="submit"/>Add news</button>
+  </form>
+
+
+<!-- Footer -->
+</body>
+
+</html>
