@@ -1,0 +1,4 @@
+import json
+
+with open('easy_json.json', encoding='utf-8') as f1:
+   stable_db = json.load(f1)
