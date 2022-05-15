@@ -17,8 +17,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
 
 <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ url_for('static', path='/css/rate.css') }}">
-  
+<link rel="stylesheet" href="{{ url_for('static', path='/css/comment.css') }}">
+
+<!--script-->
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <style>
   body, html {
     height: 100%;
@@ -60,12 +66,75 @@
   </div>
 </div>
 
+<!--comment-->
+<h3>Comment</h3>
+<div class="container mt-1 d-flex justify-content-center">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="comment">
+                <ul class="list-unstyled">
 
-<!-- rating -->
+                  <!--FIRST LIST ITEM-->
+                    <li class="media"> <span class="round pt-2"><img src="{{current_user.avatar_url}}" class="align-self-start mr-3"></span>
+                        <div class="media-body">
+                            <div class="row d-flex">
+                                <h6 class="user pt-2">{{current_user.username}}</h6>
+                                <div class="ml-auto">
+                                    <p class="text">time</p>
+                                </div>
+                            </div>
+                            <p class="text">my comment</p>
+                        </div>
+                    </li>
+
+                    <!--FIRST LIST ITEM
+
+                    <li class="media"> <span class="round pt-2"><img src="https://img.icons8.com/bubbles/100/000000/groups.png" class="align-self-start mr-3"></span>
+                        <div class="media-body">
+                            <div class="row d-flex">
+                                <h6 class="user pt-2">Michael Andrews</h6>
+                                <div class="ml-auto">
+                                    <p class="text">3m</p>
+                                </div>
+                            </div>
+                            <p class="text">Liked four of your artworks</p>
+                            <div class="images mt-2"> 
+                              <img src="https://img.icons8.com/bubbles/100/000000/couple-icloud.png" /> 
+                              <img src="https://img.icons8.com/bubbles/100/000000/check-male.png" /> 
+                              <img src="https://img.icons8.com/bubbles/100/000000/lock-female-user.png" /> 
+                              <img src="https://img.icons8.com/bubbles/100/000000/lock-male-user.png" /> 
+                            </div>
+                        </div>
+                    </li>
 
 
+                    <li class="media my-5"> <span class="round"><img src="https://img.icons8.com/office/100/000000/user-group-man-man--v1.png" class="align-self-start mr-3"></span>
+                        <div class="media-body">
+                            <div class="row d-flex">
+                                <h6 class="user">Giana Ekstrom Bothman</h6>
+                                <div class="ml-auto">
+                                    <p class="text">2h</p>
+                                </div>
+                            </div>
+                            <p class="text">Commented on your"Le Doux" Artwork</p>
+                            <div class="media mt-3 comment"> <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/lock-male-user.png" class="align-self-center mr-1"></a>
+                                <div class="media-body">
+                                    <p class="reply">"Love this art, what inspired you to make this<br>&nbsp;wonderful artwork?"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
-<!-- end rate -->
+-->
+                  
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <!-- Contact/Area Container -->
 <div class="w3-container" id="where" style="padding-bottom:32px;">
@@ -174,13 +243,19 @@
 
 
       <input class="w3-input w3-padding-16 w3-border" name="comment" type="text" placeholder="Bình luận" required name="Bình luận" style="min-height: 100px;">
+      {% if current_user:%}
       <button class="w3-button w3-black" type="submit">Gửi bình luận</button>
+      {% else:%}
+      <a href="{{OAUTH_URL}}">Dang nhap de binh luan
+      </a>
+      {% endif %}
     </form>
   </div>
 </div>
 
 <!-- End page content -->
 </div>
+
 
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-20 w3-large">
