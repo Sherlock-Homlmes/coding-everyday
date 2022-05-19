@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title>BetterMe.news: Khám phá tri thức</title>
+    <link rel="icon" href="{{ url_for('static', path='/images/page_logo.png') }}" type="image/icon type">
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta charset="utf-8" />    
+    <meta name="keywords" content="kiến thức,khoa học,công nghệ,kiến thức đời sống,tri thức,lịch sử,địa lý,  học tập,discord,cộng đồng,community,group,nhóm,swm,study with me">
+    <meta name="description" content="Nơi cung cấp, tổng hợp những kiến thức khoa học mới nhất.
+    Những kiến thức đời sống bổ ích, được chọn lọc.">
+
+    <meta name="author" content="BetterMe">
+    <meta name="generator" content="BetterMe">
+
+    <!------------ base-uri ------------------->
+    <meta http-equiv="Content-Security-Policy" content="base-uri 'self'">
+    <base href="https://betterme.news/">
+
+    <!----------------open graph------------------------>
+    <meta property="og:title" content="Khám phá tri thức">
+    <meta property="og:type" content="article"/>
+    <meta property="og:description" content="Nơi cung cấp, tổng hợp những kiến thức khoa học mới nhất.
+    Những kiến thức đời sống bổ ích, được chọn lọc." />
+    <meta property="og:site_name" content="BetterMe">
+    <meta property="og:locate" content="vi">
+    <meta property="og:image" content="{{ url_for('static', path='/images/logo4.png') }}">
+
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/news.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/slideshow.css') }}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!--meta http-equiv="refresh" content="300"-->
+<style>
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+@media screen and (max-width: 479px) {
+  .openbtn {
+    display: block;
+  }
+  #header{
+    position: fixed;
+  }
+  .topic-type a{
+    font-size: 15px;
+  }
+}
+
+
+#mySidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+#mySidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+#mySidebar a:hover {
+  color: #f1f1f1;
+}
+
+#mySidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 480px) {
+  #mySidebar {padding-top: 15px;}
+  .topic-type a {
+    font-size: 5px;
+  }
+}
+   #collapsed-leftnav li a{
+  padding: 9px;
+  font-weight:bold;
+  border-radius: 9px;
+  color: rgba(0, 0, 0, 0.87);
+}
+#collapsed-leftnav li:hover{
+  background-color: #e7b712;
+  border-radius: 9px;
+}
+
+#collapsed-leftnav .topic-type{
+  border-bottom: 1px black solid;
+  border-radius: 0px;
+}
+
+#collapsed-leftnav .topic-type:hover{
+  background-color: #fff;
+  border-radius: 0px;
+}
+
+
+#collapsed-leftnav .topic-type a{
+  border-radius: 0px;
+  cursor: default;
+  color: #458EA7;
+}   
+      
+</style>
+
+<!------------click jacking------------->
+<style>
+  /* Hide page by default */
+  html { display : none; }
+</style>
+
+<script>
+  if (self == top) {
+    // Everything checks out, show the page.
+    document.documentElement.style.display = 'block';
+  } else {
+    // Break out of the frame.
+    top.location = self.location;
+  }
+</script>
+
+  </head>
+  
+  
+  <body>
+    
+    <div id="page">
+      
+      <!-- nav bar-->
+      <div class="clearfix" id="header">
+
+        <!-- logo -->
+        <div class="headerleft">
+          
+         <div id="mySidebar">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+             <ul class="navigation clearfix" id="collapsed-leftnav">
+              <!---------------------------- type 1------------------------------>
+              <li class="topic-type" style="background: #B5EAD7;border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px">
+                <center>
+                  <a> Khoa học hàn lâm </a>
+                </center>
+              </li>
+
+              <li class="l2 tax-kham-pha-khoa-hoc">
+                <a href="/khoa-hoc">
+                  <img
+                    src="{{ url_for('static', path='/images/khoahoc.webp') }}"
+                    alt="khoa-hoc"
+                  />
+                  Khoa học
+                </a>
+              </li>
+
+              <li class="l2 tax-lich-su">
+                <a href="/lich-su">
+                  <img
+                    src="{{ url_for('static', path='/images/lichsu.webp') }}"
+                    alt="lich-su"
+                  />
+                  Lịch sử
+                </a>
+              </li>
+
+              <li class="l2 tax-cong-trinh">
+                <a href="/dia-ly">
+                  <img
+                    src="{{ url_for('static', path='/images/dialy.png') }}"
+                    alt="dia-ly"
+                  />
+                  Địa lý
+                </a>
+              </li>
+
+              <li class="l2 tax-sinh-vat-hoc">
+                <a href="/sinh-hoc">
+                  <img
+                    src="{{ url_for('static', path='/images/sinhhoc.webp') }}"
+                    alt="sinh-hoc"
+                  />
+                  Sinh học
+                </a>
+              </li>
+
+              <!---------------------------- type 2------------------------------>
+              <div class="topic-space"></div>
+
+              <li class="topic-type" style="background: #FFB7B2;border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px">
+                <center>
+                  <a> Nâng tầm hiểu biết </a>
+                </center>
+              </li>
+
+              <li class="l2 tax-tai-sao">
+                <a href="/10-van-cau-hoi-vi-sao">
+                  <img
+                    src="{{ url_for('static', path='/images/visao.webp') }}"
+                    alt="10-van-cau-hoi-vi-sao"
+                  />
+                  Vì sao ?
+                </a>
+              </li>
+
+              <li class="l2 tax-su-that-thu-vi">
+                <a href="/su-that-thu-vi">
+                  <img
+                    src="{{ url_for('static', path='/images/suthat.png') }}"
+                    alt="su-that-thu-vi"
+                  />
+                  Sự thật thú vị
+                </a>
+              </li>
+
+              <li class="l2 tax-1001-bi-an">
+                <a href="/1001-bi-an">
+                  <img
+                    src="{{ url_for('static', path='/images/bian.webp') }}"
+                    alt="1001-bi-an"
+                  />
+                  1001 bí ẩn
+                </a>
+              </li>
+              <li class="l2 tax-kien-truc-doc-dao" style="user-select: auto">
+                <a href="/kien-truc-doc-dao" style="user-select: auto">
+                  <img
+                    src="{{ url_for('static', path='/images/kientrucdocdao.webp') }}"
+                    alt="kien-truc-doc-dao"
+                    style="user-select: auto"
+                  />
+                  Kiến trúc độc đáo
+                </a>
+              </li> 
+              <li class="l2 tax-danh-nhan-the-gioi">
+                <a href="/danh-nhan-the-gioi">
+                  <img
+                    src="{{ url_for('static', path='/images/danhnhan.webp') }}"
+                    alt="danh-nhan-the-gioi"
+                  />
+                  Danh nhân thế giới
+                </a>
+              </li>
+
+              <li class="l2 tax-the-gioi-dong-vat">
+                <a href="/the-gioi-dong-vat">
+                  <img
+                    src="{{ url_for('static', path='/images/dongvat.webp') }}"
+                    alt="the-gioi-dong-vat"
+                  />
+                  Thế giới động vật
+                </a>
+              </li>
+
+              <!---------------------------- type 4------------------------------>
+              <div class="topic-space"></div>
+
+              <li class="topic-type" style="background: #C7CEEA;border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px">
+                <center>
+                  <a> Kiến thức thực tế </a>
+                </center>
+              </li>
+
+              <li class="l2 tax-yhoc">
+                <a href="/y-hoc-suc-khoe">
+                  <img
+                    src="{{ url_for('static', path='/images/yhoc.webp') }}"
+                    alt="y-hoc-suc-khoe"
+                    style="user-select: auto"
+                  />
+                  Y học - Sức khỏe
+                </a>
+              </li>  
+              
+            </ul>
+        </div> 
+          
+          
+          
+          <button class="openbtn" onclick="openNav()">☰</button>
+          <script>
+            function openNav() {
+              document.getElementById("mySidebar").style.display = "block";
+              document.getElementById("mySidebar").style.width = "250px";
+              document.getElementById("main").style.marginLeft = "250px";
+            }
+
+            function closeNav() {
+              document.getElementById("mySidebar").style.width = "0";
+              document.getElementById("main").style.marginLeft = "0";
+            }
+          </script>
+
+          <a href="/" id="logo" title="BetterMe.news" style="color: black;">
+            <img src="{{ url_for('static', path='/images/title-logo.png') }}" style =" max-width:220px">
+          </a>
+        </div>
+      </div>
+      
+      <!--nav topic-->
+      <div class="clearfix" id="mainmenu">
+        <ul class="navigation clearfix" id="topnav">
+          <li class="item all">
+            <a href="/"
+              ><img src="{{ url_for('static', path='/images/home.webp') }}" /> Trang
+              chủ</a
+            >
+          </li>
+
+          <li class="item tax-kham-pha-khoa-hoc" style="user-select: auto;display: none;">
+            <a href="/khoa-hoc-han-lam" style="user-select: auto">
+              <img
+                src="https://e.khoahoc.tv/photos/image/Icon/2016/science1.png"
+                style="user-select: auto"
+              />
+              Khám phá khoa học
+            </a>
+          </li>
+
+          <li class="item tax-doi-song" style="user-select: auto;display:none">
+            <a href="/kien-thuc-thuc-te" style="user-select: auto">
+              <img
+                src="https://e.khoahoc.tv/photos/image/Icon/2016/human.png"
+                style="user-select: auto"
+              />
+              Kiến thức thực tế
+            </a>
+          </li>
+
+        </ul>
+      </div>
+      
+      
+      <!--main-->
+      <div class="indexpage clearfix" id="main">
+        <div class="content">
+          
+          
+          
+ 
+          <!------------------------ slideshow ------------------------->
+  <div class="slider" id="slider"> 
+      <a class="thumb" href="/{{hot_first['name']}}">
+      <div class="slide active">
+        <img src="{{ hot_first['slide_show_link'] }}" alt="{{ hot_first['title'] }}">
+        <div class="info">
+          <center><h2>{{ hot_first['title'] }}</h2></center>
+
+        </div>
+      </div>
+    </a>
+
+      {% for hot in hot_list: %}
+      <a class="thumb" href="/{{hot['name']}}">
+        <div class="slide">
+        <img src="{{ hot['slide_show_link'] }}" alt="{{ hot['title'] }}">
+        <div class="info">
+          <center><h2>{{ hot['title'] }}</h2></center>
+        </div>
+      
+      </div>
+    </a>
+      {% endfor %}
+
+      <div class="slide-navigation" id="slide-navigation">
+        <i class="fas fa-chevron-left prev-btn"></i>
+        <i class="fas fa-chevron-right next-btn"></i>
+      </div>
+      <div class="navigation-visibility">
+        <div class="slide-icon active"></div>
+        <div class="slide-icon"></div>
+        <div class="slide-icon"></div>
+      </div>
+    </div>
+          
+    <script type="text/javascript">
+
+    const slider = document.querySelector(".slider");
+    const nextBtn = document.querySelector(".next-btn");
+    const prevBtn = document.querySelector(".prev-btn");
+    const slides = document.querySelectorAll(".slide");
+    const slideIcons = document.querySelectorAll(".slide-icon");
+    const numberOfSlides = slides.length;
+    var slideNumber = 0;
+
+    //image slider next button
+    nextBtn.addEventListener("click", () => {
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
+      slideIcons.forEach((slideIcon) => {
+        slideIcon.classList.remove("active");
+      });
+
+      slideNumber++;
+
+      if(slideNumber > (numberOfSlides - 1)){
+        slideNumber = 0;
+      }
+
+      slides[slideNumber].classList.add("active");
+      slideIcons[slideNumber].classList.add("active");
+    });
+
+    //image slider previous button
+    prevBtn.addEventListener("click", () => {
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
+      slideIcons.forEach((slideIcon) => {
+        slideIcon.classList.remove("active");
+      });
+
+      slideNumber--;
+
+      if(slideNumber < 0){
+        slideNumber = numberOfSlides - 1;
+      }
+
+      slides[slideNumber].classList.add("active");
+      slideIcons[slideNumber].classList.add("active");
+    });
+
+    //image slider autoplay
+    var playSlider;
+
+    var repeater = () => {
+      playSlider = setInterval(function(){
+        slides.forEach((slide) => {
+          slide.classList.remove("active");
+        });
+        slideIcons.forEach((slideIcon) => {
+          slideIcon.classList.remove("active");
+        });
+
+        slideNumber++;
+
+        if(slideNumber > (numberOfSlides - 1)){
+          slideNumber = 0;
+        }
+
+        slides[slideNumber].classList.add("active");
+        slideIcons[slideNumber].classList.add("active");
+      }, 4000);
+    }
+    repeater();
+
+    //stop the image slider autoplay on mouseover
+    slider.addEventListener("mouseover", () => {
+      clearInterval(playSlider);
+    });
+
+    //start the image slider autoplay again on mouseout
+    slider.addEventListener("mouseout", () => {
+      repeater();
+    });
+              
+              
+    // auto fix image size
+    const slideImage = document.getElementById("slider");
+    const slideNavigation = document.getElementById("slide-navigation");  
+    
+    const slideInfo = document.querySelectorAll(".slider .slide .info");
+    //console.log(slideInfo);
+    function slideInfoChange(){
+      slideInfo.forEach(element =>{
+        element.style.marginLeft = String(slideImage.offsetWidth /10)+"px";
+      }
+      )
+    }
+    slideInfoChange();
+              
+    slideImage.style.height = String(slideImage.offsetWidth *34/65)+"px";  
+    slideNavigation.style.height = String(slideImage.offsetHeight)+"px";  
+    
+    window.addEventListener('resize', function (event) {
+      //console.log(slideImage.offsetHeight, slideImage.offsetWidth);
+      slideImage.style.height = String(slideImage.offsetWidth *34/65)+"px";  
+      slideNavigation.style.height = String(slideImage.offsetHeight)+"px"; 
+      slideInfoChange();
+       
+    
+    })
+
+    </script>
+          
+          <!------------------------ end slideshow------------------------->
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <div class="listview">
+            <ul>
+
+              <!-- news box-->
+              {% for post in post_list: %}
+              <li class="listitem clearfix">
+                <a
+                  class="title"
+                  href="/{{post['name']}}"
+                >
+                  {{ post['title'] }}
+                </a>
+                <a
+                  class="thumb"
+                  href="/{{post['name']}}"
+                >
+                  <img
+                    alt="{{ post['title'] }}"
+                    class="lazy"
+                    data-src="{{ post['thumbnail_link'] }}"
+                    src="{{ post['thumbnail_link'] }}"
+                    style="object-fit: scale-down;"
+                  />
+                </a>
+                <div class="desc">
+                  {{post['description']}}
+                </div>
+              </li>
+              {% endfor %}
+
+              
+            </ul>
+          </div>
+
+          
+          
+          
+          {% if next_page: %}
+          <div class="pagination-container">
+            <ul class="pagination">
+              <li class="PagedList-skipToNext">
+                <a href="/page-{{ page + 1 }}" rel="next">Xem thêm</a>
+              </li>
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if page>1: %}
+          <div class="pagination-container">
+            <ul class="pagination">
+              <li class="PagedList-skipToNext">
+                <a href="/page-{{ page - 1 }}" rel="next">Quay lại</a>
+              </li>
+            </ul>
+          </div>
+          {% endif %}
+
+        </div>
+        
+        <!--sidebar-->
+        <div class="sidebar" id="sidebar" >
+          <div class="w3-card w3-center">
+            <div class="w3-container w3-padding" style="color: #2980b9;border-bottom: 1px solid;background: #B7CEE2;">
+              <h4 style="font-weight:bold">Tiêu điểm</h4>
+            </div>
+            <ul class="w3-ul w3-hoverable w3-white">
+              
+              {% for most_view in most_view_list: %}
+              <!--element-->
+              <li class="w3-margin-8">
+                <a href="/{{ most_view['name'] }}">
+                <img src="{{ most_view['thumbnail_link'] }}" alt="Image" class="w3-left w3-margin-right" style="width:100px">
+                <strong>{{ most_view["title"] }}</strong>
+              </a>
+              </li>
+              <!--end element-->
+              {% endfor %}
+
+            </ul>
+          </div>
+          <hr> 
+          
+        </div>
+        
+        
+        <!--left bar-->
+        <div class="leftbar" style="margin-right: 10px;">
+          <div class="navbox sidenav clearfix">
+            <div class="title" style="display: none">☰ Danh mục</div>
+            <ul class="navigation clearfix" id="leftnav">
+              <!---------------------------- type 1------------------------------>
+              <li class="topic-type" style="background: #B5EAD7;border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px">
+                <center>
+                  <a> Khoa học hàn lâm </a>
+                </center>
+              </li>
+
+              <li class="l2 tax-kham-pha-khoa-hoc">
+                <a href="/khoa-hoc">
+                  <img
+                    src="{{ url_for('static', path='/images/khoahoc.webp') }}"
+                    alt="khoa-hoc"
+                  />
+                  Khoa học
+                </a>
+              </li>
+
+              <li class="l2 tax-lich-su">
+                <a href="/lich-su">
+                  <img
+                    src="{{ url_for('static', path='/images/lichsu.webp') }}"
+                    alt="lich-su"
+                  />
+                  Lịch sử
+                </a>
+              </li>
+
+              <li class="l2 tax-cong-trinh">
+                <a href="/dia-ly">
+                  <img
+                    src="{{ url_for('static', path='/images/dialy.png') }}"
+                    alt="dia-ly"
+                  />
+                  Địa lý
+                </a>
+              </li>
+
+              <li class="l2 tax-sinh-vat-hoc">
+                <a href="/sinh-hoc">
+                  <img
+                    src="{{ url_for('static', path='/images/sinhhoc.webp') }}"
+                    alt="sinh-hoc"
+                  />
+                  Sinh học
+                </a>
+              </li>
+
+              <!---------------------------- type 2------------------------------>
+              <div class="topic-space"></div>
+
+              <li class="topic-type" style="background: #FFB7B2;border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px">
+                <center>
+                  <a> Nâng tầm hiểu biết </a>
+                </center>
+              </li>
+
+              <li class="l2 tax-tai-sao">
+                <a href="/10-van-cau-hoi-vi-sao">
+                  <img
+                    src="{{ url_for('static', path='/images/visao.webp') }}"
+                    alt="10-van-cau-hoi-vi-sao"
+                  />
+                  Vì sao ?
+                </a>
+              </li>
+
+              <li class="l2 tax-su-that-thu-vi">
+                <a href="/su-that-thu-vi">
+                  <img
+                    src="{{ url_for('static', path='/images/suthat.png') }}"
+                    alt="su-that-thu-vi"
+                  />
+                  Sự thật thú vị
+                </a>
+              </li>
+
+              <li class="l2 tax-1001-bi-an">
+                <a href="/1001-bi-an">
+                  <img
+                    src="{{ url_for('static', path='/images/bian.webp') }}"
+                    alt="1001-bi-an"
+                  />
+                  1001 bí ẩn
+                </a>
+              </li>
+              <li class="l2 tax-kien-truc-doc-dao" style="user-select: auto">
+                <a href="/kien-truc-doc-dao" style="user-select: auto">
+                  <img
+                    src="{{ url_for('static', path='/images/kientrucdocdao.webp') }}"
+                    alt="kien-truc-doc-dao"
+                    style="user-select: auto"
+                  />
+                  Kiến trúc độc đáo
+                </a>
+              </li> 
+              <li class="l2 tax-danh-nhan-the-gioi">
+                <a href="/danh-nhan-the-gioi">
+                  <img
+                    src="{{ url_for('static', path='/images/danhnhan.webp') }}"
+                    alt="danh-nhan-the-gioi"
+                  />
+                  Danh nhân thế giới
+                </a>
+              </li>
+
+              <li class="l2 tax-the-gioi-dong-vat">
+                <a href="/the-gioi-dong-vat">
+                  <img
+                    src="{{ url_for('static', path='/images/dongvat.webp') }}"
+                    alt="the-gioi-dong-vat"
+                  />
+                  Thế giới động vật
+                </a>
+              </li>
+
+              <!---------------------------- type 4------------------------------>
+              <div class="topic-space"></div>
+
+              <li class="topic-type" style="background: #C7CEEA;border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px">
+                <center>
+                  <a> Kiến thức thực tế </a>
+                </center>
+              </li>
+
+              <li class="l2 tax-yhoc">
+                <a href="/y-hoc-suc-khoe">
+                  <img
+                    src="{{ url_for('static', path='/images/yhoc.webp') }}"
+                    alt="y-hoc-suc-khoe"
+                    style="user-select: auto"
+                  />
+                  Y học - Sức khỏe
+                </a>
+              </li>  
+                         
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="clearfix" id="footer">
+        <div class="info">
+          <a
+            href="https://discord.gg/betterme"
+            rel="nofollow"
+            target="_blank"
+            >Discord BetterMe</a
+          >
+        </div>
+        <div class="copyright">Copyright©2022 BetterMe.news</div>
+      </div>
+    </div>
+  </body>
+
+
+</html>
