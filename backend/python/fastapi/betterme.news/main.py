@@ -4,6 +4,7 @@ import time
 from dotenv import load_dotenv
 import os
 import asyncio
+import json,io
 
 ##### fastapi
 from fastapi import (
@@ -44,6 +45,7 @@ from database.mongodb.discord_user_database import discord_user,take_discord_use
 from database.mongodb.rac_database import creRAC, takeRAC, take_rate_number_by_pos, check_can_comment
 #scraping and database
 from bettermenews_database.add_new_data import test_create_data, create_data, ndb
+from auto_scrap import scrap_by_page_number, title_process
 
 
 app = FastAPI(docs_url="/all-api", redoc_url=None)
@@ -604,8 +606,59 @@ async def _comment(
 async def test(request:Request):
   return templates.TemplateResponse("nicepage.html",{"request":request})
 
+#auto scraping
+
+@app.get('/auto-scrap/{page_number}')
+async def auto_scrap(
+  request: Request,
+  page_number: int
+  ):
+
+  #return scrap_by_page_number(page_number)
+  return templates.TemplateResponse("auto-scrap.html",{
+    "request":request,
+    "scraping": scrap_by_page_number(page_number),
+    "topics": topic
+    })
+  
+@app.get('/auto-scrap/check-content/{name}')
+async def scrap_check(
+  request: Request,
+  name: str,
+
+  #html_type: str = Form(...),
+  #tags: list = Form(...)
+
+  ):
+
+  with open('check_data.json', encoding='utf-8') as f1:
+    all_post = json.load(f1)
+
+  name = "/"+name
+  url = "https://khoahoc.tv" + name
+  thumbnail_link = all_post[name]['thumb_src']
+  name = title_process(name)
+  
+
+  data = await test_create_data(url,name,"normal",thumbnail_link,"","",['khoa-hoc'])
+  print(data)
+
+  description = data["description"]
+  keywords = data["keywords"]
+  html_type = data["html_type"]
+  content = data["content"]
+
+  
+  return templates.TemplateResponse("demo_news_post.html",
+    {"request":request,
+    "description": description,
+    "keywords": keywords,
+    "html_type": html_type,
+    "content": content
+    })
+
+
 
 
 import uvicorn
-
-uvicorn.run(app,port=8082)
+uvicorn.run(app,port=8080)
