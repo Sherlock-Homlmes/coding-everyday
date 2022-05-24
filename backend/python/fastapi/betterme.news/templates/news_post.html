@@ -75,17 +75,19 @@
                 <ul class="list-unstyled">
 
                   <!--FIRST LIST ITEM-->
-                    <li class="media"> <span class="round pt-2"><img src="{{current_user.avatar_url}}" class="align-self-start mr-3"></span>
+                  {% for value in rac: %}
+                    <li class="media"> <span class="round pt-2"><img src="{{value['avatar_url']}}" class="align-self-start mr-3"></span>
                         <div class="media-body">
                             <div class="row d-flex">
-                                <h6 class="user pt-2">{{current_user.username}}</h6>
+                                <h6 class="user pt-2">{{value['username']}}</h6>
                                 <div class="ml-auto">
                                     <p class="text">time</p>
                                 </div>
                             </div>
-                            <p class="text">my comment</p>
+                            <p class="text">{{value['comment']}}</p>
                         </div>
                     </li>
+                  {% endfor %}
 
                     <!--FIRST LIST ITEM
 
@@ -135,22 +137,22 @@
 </div>
 
 
-
+{% if can_cmt == True: %}
 <!-- Contact/Area Container -->
 <div class="w3-container" id="where" style="padding-bottom:32px;">
   <div class="w3-content" style="max-width:400px">
     <form action="/comment" target="_parent" method="post">
 
       <div class="rating">
-        <input type="radio" name="rating" id="rating-5" value="5">
+        <input type="radio" name="rate" id="rating-5" value="5">
         <label for="rating-5"></label>
-        <input type="radio" name="rating" id="rating-4" value="4">
+        <input type="radio" name="rate" id="rating-4" value="4">
         <label for="rating-4"></label>
-        <input type="radio" name="rating" id="rating-3" value="3">
+        <input type="radio" name="rate" id="rating-3" value="3">
         <label for="rating-3"></label>
-        <input type="radio" name="rating" id="rating-2" value="2">
+        <input type="radio" name="rate" id="rating-2" value="2">
         <label for="rating-2"></label>
-        <input type="radio" name="rating" id="rating-1" value="1">
+        <input type="radio" name="rate" id="rating-1" value="1">
         <label for="rating-1"></label>
         <div class="emoji-wrapper">
           <div class="emoji">
@@ -243,6 +245,7 @@
 
 
       <input class="w3-input w3-padding-16 w3-border" name="comment" type="text" placeholder="Bình luận" required name="Bình luận" style="min-height: 100px;">
+      <input type="hidden" name="position" value="{{position}}">
       {% if current_user:%}
       <button class="w3-button w3-black" type="submit">Gửi bình luận</button>
       {% else:%}
@@ -252,6 +255,15 @@
     </form>
   </div>
 </div>
+{% endif %}
+
+<!--script request form-->
+<script type="text/javascript">
+  
+</script>
+
+
+
 
 <!-- End page content -->
 </div>
