@@ -1,0 +1,42 @@
+<html>
+<head>
+
+<!--link href="{{ url_for('static', path='/css/check_data.css') }}" rel="stylesheet"-->
+
+</head>
+
+<body> 
+
+  <form  action="/auto-scrap/confirm" target="_blank" method="post">
+  {% for key in scraping.keys():%}
+    <h1>----------------------------------Check---------------------------------------</h1>
+
+    <label for="{{key}}">
+      Name: {{scraping[key]['title_content']}} <br>
+      Desciption: {{scraping[key]['description']}} <br>
+      Thumnail:<img src="{{scraping[key]['thumb_src']}}" alt="{{scraping[key][thumb_alt]}}" width="200" height="200"><br>
+
+      <input name="html_type"         type="checkbox" id="normal" placeholder="html_type" value="{{key}}|||normal">
+      <label for="normal">Normal</label><br>
+      <input name="html_type"         type="checkbox" id="horror" placeholder="html_type" value="{{key}}|||horror">
+      <label for="horror">Horror</label><br>
+      <!--tags-->
+      <h1>Tags</h1>
+      {% for topic in topics:%}
+      <input name="tags"              type="checkbox" id="{{topic}}"value="{{key}}|||{{topic}}">
+      <label for="{{key}}-{{topic}}">{{topic}}</label><br>
+      {% endfor %}
+
+    </label><br>
+
+    <input name="check_list"              type="checkbox" id="{{key}}" value="{{key}}">Confirm<br>
+
+    <a href="/auto-scrap/check-content{{key}}" target="_blank" >Check content</a><br>
+    <br>
+  {% endfor%}
+    <button type="submit"/>Add news</button>
+    </form>
+
+
+</body>
+</html>
