@@ -45,7 +45,7 @@ from database.mongodb.discord_user_database import discord_user,take_discord_use
 from database.mongodb.rac_database import creRAC, takeRAC, take_rate_number_by_pos, check_can_comment
 #scraping and database
 from bettermenews_database.add_new_data import test_create_data, create_data, ndb
-from auto_scrap import scrap_by_page_number, title_process
+from auto_scrap import scrap_by_page_number, title_process, auto_scrap_process
 
 
 app = FastAPI(docs_url="/all-api", redoc_url=None)
@@ -657,6 +657,24 @@ async def scrap_check(
     "content": content
     })
 
+@app.post('/auto-scrap/confirm')
+async def scrap_check(
+  request: Request,
+
+  check_list: list = Form(...),
+
+  html_type: list = Form(...),
+  tags: list = Form(...)
+
+  ):
+
+  print(check_list)
+  print(html_type)
+  print(tags)
+
+  auto_scrap_process(check_list,html_type,tags)
+
+  return "done"
 
 
 

@@ -6,6 +6,12 @@ import io, json
 
 #from bettermenews_database.crawl import *
 
+topic = ["khoa-hoc","lich-su","dia-ly","sinh-hoc",
+         "10-van-cau-hoi-vi-sao","su-that-thu-vi","1001-bi-an","danh-nhan-the-gioi","the-gioi-dong-vat",
+         "y-hoc-suc-khoe","kien-truc-doc-dao"]
+
+
+##### scrap
 def scrap_by_page_number(number):
 	response = requests.get(f"https://khoahoc.tv/?p={number}")
 	soup = BeautifulSoup(response.content, "html.parser")
@@ -60,6 +66,26 @@ def title_process(title:str) -> str:
 	title = '-'.join(tit)
 	return title
 
-#print(scrap_by_page_number(2))
-#for title in scrap_by_page_number(2):
-	#print(title)
+
+##### process after scrap
+def auto_scrap_process(check_list:list,html_type_list:list,tags_list:list):
+	for check in check_list:
+		html = []
+		tag  = []
+		for html_type in html_type_list:
+			if html_type.startswith(check):
+				html_type = html_type.split("|||")[1]
+				if html_type not in topic:
+					return False
+				else:
+					html.append(html_type)
+		for tags in tags_list:
+			if tags.startswith(check):
+				tags = tags.split("|||")[1]
+				if tags not in ["normal","horror"]:
+					return False
+				else:
+					tag.append(tags)	
+
+		print(f"html: {html}")
+		print(f"tag: {tag}")
