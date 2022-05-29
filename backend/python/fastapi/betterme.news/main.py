@@ -44,7 +44,8 @@ from easy_json.easy_json import opendb, writedb
 from database.mongodb.discord_user_database import discord_user,take_discord_user_by_id
 from database.mongodb.rac_database import creRAC, takeRAC, take_rate_number_by_pos, check_can_comment
 #scraping and database
-from bettermenews_database.add_new_data import test_create_data, create_data, ndb
+from bettermenews_database.add_new_data import test_create_data, create_data
+#from bettermenews_database.news_database import ndb,take_ndb
 from auto_scrap import scrap_by_page_number, title_process, auto_scrap_process
 
 
@@ -179,6 +180,7 @@ topic = ["khoa-hoc","lich-su","dia-ly","sinh-hoc",
          "10-van-cau-hoi-vi-sao","su-that-thu-vi","1001-bi-an","danh-nhan-the-gioi","the-gioi-dong-vat",
          "y-hoc-suc-khoe","kien-truc-doc-dao"]
 
+'''
 tam1, tam2, tam3 = load_page(1)
 post_list = tam1
 hot_list = tam2
@@ -239,7 +241,7 @@ async def home(
       })
   else:
     return templates.TemplateResponse("404_error.html",{"request":request})
-
+'''
 #page
 @app.get("/page-{page_number}")
 async def page(
@@ -668,15 +670,15 @@ async def scrap_check(
 
   ):
 
-  print(check_list)
-  print(html_type)
-  print(tags)
+  #print(check_list)
+  #print(html_type)
+  #print(tags)
 
-  auto_scrap_process(check_list,html_type,tags)
+  await auto_scrap_process(check_list,html_type,tags)
 
   return "done"
 
 
 
 import uvicorn
-uvicorn.run(app,port=8080)
+uvicorn.run(app,port=8081)
