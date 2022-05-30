@@ -106,6 +106,15 @@ def get_discord_user(access_token):
 
   return current_user
 
+def is_admin(access_token) -> bool:
+  current_user = get_discord_user(access_token)
+  if current_user:
+    if current_user.id in admin_id:
+      return True
+    else:
+      return False
+  else:
+    return False
 
 @app.get("/discord_oauth")
 async def discord_oauth(
@@ -179,6 +188,7 @@ async def logout(request:Request,response: Response):
 topic = ["khoa-hoc","lich-su","dia-ly","sinh-hoc",
          "10-van-cau-hoi-vi-sao","su-that-thu-vi","1001-bi-an","danh-nhan-the-gioi","the-gioi-dong-vat",
          "y-hoc-suc-khoe","kien-truc-doc-dao"]
+admin_id = [880359404036317215,278423331026501633]
 
 '''
 tam1, tam2, tam3 = load_page(1)
@@ -326,7 +336,7 @@ async def topic_page(request:Request,name:str,page_number:str):
       return templates.TemplateResponse("404_error.html",{"request":request})
   else:
     return templates.TemplateResponse("404_error.html",{"request":request})
-
+'''
 ###################################################################################### scraping 
 
 @app.get("/scraping-khtv")
@@ -489,7 +499,7 @@ async def _confirm(
   writedb(waiting_dict)
 
   return f"Đã thêm {check_list} vào data"
-
+'''
 ######################################################topic + post
 @app.get("/{name}")
 async def _topic_post(
@@ -616,12 +626,28 @@ async def auto_scrap(
   page_number: int
   ):
 
-  #return scrap_by_page_number(page_number)
-  return templates.TemplateResponse("auto-scrap.html",{
-    "request":request,
-    "scraping": scrap_by_page_number(page_number),
-    "topics": topic
-    })
+  ad_check = is_admin(request.cookies.get("discord_access_token"))
+  if ad_check == True:
+
+      #return scrap_by_page_number(page_number)
+      return templates.TemplateResponse("auto-scrap.html",{
+        "request":request,
+        "scraping": scrap_by_page_number(page_number),
+        "topics": topic
+        })
+
+  else:
+    content =  f'''
+    <html>
+      <a href={OAUTH_URL}>dang nhap</a>
+    </html>
+    '''
+
+    response = HTMLResponse(content=content,status_code=200)
+    response.set_cookie(key="pre_page",value=f"auto-scrap/{page_number}")
+
+    return response
+
   
 @app.get('/auto-scrap/check-content/{name}')
 async def scrap_check(
@@ -681,4 +707,4 @@ async def scrap_check(
 
 
 import uvicorn
-uvicorn.run(app,port=8081)
+uvicorn.run(app,port=8082)
