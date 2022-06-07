@@ -1,14 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
   
 <title>{{title}}</title>
 <meta charset="UTF-8">
-<link rel="icon" href="{{ url_for('static', path='/images/page_logo.png') }}" type="image/icon type">
+<link rel="icon" href="{% static '/images/page_logo.png' %}" type="image/icon type">
 
 <meta name="description" content= "{{description}}" >
 {{keywords | safe}}
-{% if og_image: %}
+{% if og_image %}
 <meta property="og:image" content="{{og_image}}">
 {% endif %}
 
@@ -18,8 +19,8 @@
 
 <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="{{ url_for('static', path='/css/rate.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', path='/css/comment.css') }}">
+<link rel="stylesheet" href="{% static '/css/rate.css' %}">
+<link rel="stylesheet" href="{% static '/css/comment.css' %}">
 
 <!--script-->
 <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
@@ -51,9 +52,9 @@
 
 
 <!-- Add a background color and large text to the whole page -->
-{% if html_type == 'normal': %}
+{% if html_type == 'normal' %}
   <div class="w3-large">
-{% elif html_type == 'horror': %}
+{% elif html_type == 'horror' %}
   <div class="w3-sand w3-grayscale w3-large">
 {% endif %}
 
@@ -75,16 +76,16 @@
                 <ul class="list-unstyled">
 
                   <!--FIRST LIST ITEM-->
-                  {% for value in rac: %}
-                    <li class="media"> <span class="round pt-2"><img src="{{value['avatar_url']}}" class="align-self-start mr-3"></span>
+                  {% for value in rac %}
+                    <li class="media"> <span class="round pt-2"><img src="{{value.avatar_url}}" class="align-self-start mr-3"></span>
                         <div class="media-body">
                             <div class="row d-flex">
-                                <h6 class="user pt-2">{{value['username']}}</h6>
+                                <h6 class="user pt-2">{{value.username}}</h6>
                                 <div class="ml-auto">
                                     <p class="text">time</p>
                                 </div>
                             </div>
-                            <p class="text">{{value['comment']}}</p>
+                            <p class="text">{{value.comment}}</p>
                         </div>
                     </li>
                   {% endfor %}
@@ -137,7 +138,7 @@
 </div>
 
 
-{% if can_cmt == True: %}
+{% if can_cmt == True %}
 <!-- Contact/Area Container -->
 <div class="w3-container" id="where" style="padding-bottom:32px;">
   <div class="w3-content" style="max-width:400px">
@@ -246,9 +247,9 @@
 
       <input class="w3-input w3-padding-16 w3-border" name="comment" type="text" placeholder="Bình luận" required name="Bình luận" style="min-height: 100px;">
       <input type="hidden" name="position" value="{{position}}">
-      {% if current_user:%}
+      {% if current_user %}
       <button class="w3-button w3-black" type="submit">Gửi bình luận</button>
-      {% else:%}
+      {% else %}
       <a href="{{OAUTH_URL}}">Dang nhap de binh luan
       </a>
       {% endif %}

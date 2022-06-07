@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="vi">
   <head>
     <title>BetterMe.news: Khám phá tri thức</title>
-    <link rel="icon" href="{{ url_for('static', path='/images/page_logo.png') }}" type="image/icon type">
-
+    <link rel="icon" href="{% static '/images/page_logo.png' %}" type="image/icon type">
+    
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta charset="utf-8" />    
     <meta name="keywords" content="kiến thức,khoa học,công nghệ,kiến thức đời sống,tri thức,lịch sử,địa lý,  học tập,discord,cộng đồng,community,group,nhóm,swm,study with me">
@@ -24,14 +25,14 @@
     Những kiến thức đời sống bổ ích, được chọn lọc." />
     <meta property="og:site_name" content="BetterMe">
     <meta property="og:locate" content="vi">
-    <meta property="og:image" content="{{ url_for('static', path='/images/logo4.png') }}">
+    <meta property="og:image" content="{% static '/images/logo4.png' %}">
 
 
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/news.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/slideshow.css') }}">
+    <link rel="stylesheet" href="{% static '/css/news.css' %}">
+    <link rel="stylesheet" href="{% static '/css/slideshow.css' %}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -183,7 +184,7 @@
               <li class="l2 tax-kham-pha-khoa-hoc">
                 <a href="/khoa-hoc">
                   <img
-                    src="{{ url_for('static', path='/images/khoahoc.webp') }}"
+                    src="{% static '/images/khoahoc.webp' %}"
                     alt="khoa-hoc"
                   />
                   Khoa học
@@ -193,7 +194,7 @@
               <li class="l2 tax-lich-su">
                 <a href="/lich-su">
                   <img
-                    src="{{ url_for('static', path='/images/lichsu.webp') }}"
+                    src="{% static '/images/lichsu.webp' %}"
                     alt="lich-su"
                   />
                   Lịch sử
@@ -203,7 +204,7 @@
               <li class="l2 tax-cong-trinh">
                 <a href="/dia-ly">
                   <img
-                    src="{{ url_for('static', path='/images/dialy.png') }}"
+                    src="{% static '/images/dialy.png' %}"
                     alt="dia-ly"
                   />
                   Địa lý
@@ -213,7 +214,7 @@
               <li class="l2 tax-sinh-vat-hoc">
                 <a href="/sinh-hoc">
                   <img
-                    src="{{ url_for('static', path='/images/sinhhoc.webp') }}"
+                    src="{% static '/images/sinhhoc.png' %}"
                     alt="sinh-hoc"
                   />
                   Sinh học
@@ -232,7 +233,7 @@
               <li class="l2 tax-tai-sao">
                 <a href="/10-van-cau-hoi-vi-sao">
                   <img
-                    src="{{ url_for('static', path='/images/visao.webp') }}"
+                    src="{% static '/images/visao.webp' %}"
                     alt="10-van-cau-hoi-vi-sao"
                   />
                   Vì sao ?
@@ -242,7 +243,7 @@
               <li class="l2 tax-su-that-thu-vi">
                 <a href="/su-that-thu-vi">
                   <img
-                    src="{{ url_for('static', path='/images/suthat.png') }}"
+                    src="{% static '/images/suthat.png' %}"
                     alt="su-that-thu-vi"
                   />
                   Sự thật thú vị
@@ -252,7 +253,7 @@
               <li class="l2 tax-1001-bi-an">
                 <a href="/1001-bi-an">
                   <img
-                    src="{{ url_for('static', path='/images/bian.webp') }}"
+                    src="{% static '/images/bian.png' %}"
                     alt="1001-bi-an"
                   />
                   1001 bí ẩn
@@ -261,7 +262,7 @@
               <li class="l2 tax-kien-truc-doc-dao" style="user-select: auto">
                 <a href="/kien-truc-doc-dao" style="user-select: auto">
                   <img
-                    src="{{ url_for('static', path='/images/kientrucdocdao.webp') }}"
+                    src="{% static '/images/kientrucdocdao.png' %}"
                     alt="kien-truc-doc-dao"
                     style="user-select: auto"
                   />
@@ -271,7 +272,7 @@
               <li class="l2 tax-danh-nhan-the-gioi">
                 <a href="/danh-nhan-the-gioi">
                   <img
-                    src="{{ url_for('static', path='/images/danhnhan.webp') }}"
+                    src="{% static '/images/danhnhan.webp' %}"
                     alt="danh-nhan-the-gioi"
                   />
                   Danh nhân thế giới
@@ -281,7 +282,7 @@
               <li class="l2 tax-the-gioi-dong-vat">
                 <a href="/the-gioi-dong-vat">
                   <img
-                    src="{{ url_for('static', path='/images/dongvat.webp') }}"
+                    src="{% static '/images/dongvat.webp' %}"
                     alt="the-gioi-dong-vat"
                   />
                   Thế giới động vật
@@ -300,7 +301,7 @@
               <li class="l2 tax-yhoc">
                 <a href="/y-hoc-suc-khoe">
                   <img
-                    src="{{ url_for('static', path='/images/yhoc.webp') }}"
+                    src="{% static '/images/yhoc.webp' %}"
                     alt="y-hoc-suc-khoe"
                     style="user-select: auto"
                   />
@@ -328,7 +329,7 @@
           </script>
 
           <a href="/" id="logo" title="BetterMe.news" style="color: black;">
-            <img src="{{ url_for('static', path='/images/title-logo.png') }}" style =" max-width:220px">
+            <img src="{% static '/images/title-logo.png' %}" style =" max-width:220px">
           </a>
         </div>
       </div>
@@ -338,7 +339,7 @@
         <ul class="navigation clearfix" id="topnav">
           <li class="item all">
             <a href="/"
-              ><img src="{{ url_for('static', path='/images/home.webp') }}" /> Trang
+              ><img src="{% static '/images/home.webp' %}" /> Trang
               chủ</a
             >
           </li>
@@ -376,22 +377,22 @@
  
           <!------------------------ slideshow ------------------------->
   <div class="slider" id="slider"> 
-      <a class="thumb" href="/{{hot_first['name']}}">
+      <a class="thumb" href="/{{hot_first.name}}">
       <div class="slide active">
-        <img src="{{ hot_first['slide_show_link'] }}" alt="{{ hot_first['title'] }}">
+        <img src="{{ hot_first.slide_show_link }}" alt="{{ hot_first.title }}">
         <div class="info">
-          <center><h2>{{ hot_first['title'] }}</h2></center>
+          <center><h2>{{ hot_first.title }}</h2></center>
 
         </div>
       </div>
     </a>
 
-      {% for hot in hot_list: %}
-      <a class="thumb" href="/{{hot['name']}}">
+      {% for hot in hot_list %}
+      <a class="thumb" href="/{{hot.name}}">
         <div class="slide">
-        <img src="{{ hot['slide_show_link'] }}" alt="{{ hot['title'] }}">
+        <img src="{{ hot.slide_show_link }}" alt="{{ hot.title }}">
         <div class="info">
-          <center><h2>{{ hot['title'] }}</h2></center>
+          <center><h2>{{ hot.title }}</h2></center>
         </div>
       
       </div>
@@ -541,28 +542,28 @@
             <ul>
 
               <!-- news box-->
-              {% for post in post_list: %}
+              {% for post in post_list %}
               <li class="listitem clearfix">
                 <a
                   class="title"
-                  href="/{{post['name']}}"
+                  href="/{{ post.name }}"
                 >
-                  {{ post['title'] }}
+                  {{ post.title }}
                 </a>
                 <a
                   class="thumb"
-                  href="/{{post['name']}}"
+                  href="/{{ post.name }}"
                 >
                   <img
-                    alt="{{ post['title'] }}"
+                    alt="{{ post.title }}"
                     class="lazy"
-                    data-src="{{ post['thumbnail_link'] }}"
-                    src="{{ post['thumbnail_link'] }}"
+                    data-src="{{ post.thumbnail_link }}"
+                    src="{{ post.thumbnail_link }}"
                     style="object-fit: scale-down;"
                   />
                 </a>
                 <div class="desc">
-                  {{post['description']}}
+                  {{post.description}}
                 </div>
               </li>
               {% endfor %}
@@ -574,21 +575,21 @@
           
           
           
-          {% if next_page: %}
+          {% if next_page %}
           <div class="pagination-container">
             <ul class="pagination">
               <li class="PagedList-skipToNext">
-                <a href="/page-{{ page + 1 }}" rel="next">Xem thêm</a>
+                <a href="/page-{{ page | add:1 }}" rel="next">Xem thêm</a>
               </li>
             </ul>
           </div>
           {% endif %}
 
-          {% if page>1: %}
+          {% if page > 1 %}
           <div class="pagination-container">
             <ul class="pagination">
               <li class="PagedList-skipToNext">
-                <a href="/page-{{ page - 1 }}" rel="next">Quay lại</a>
+                <a href="/page-{{ page | add:-1 }}" rel="next">Quay lại</a>
               </li>
             </ul>
           </div>
@@ -604,12 +605,12 @@
             </div>
             <ul class="w3-ul w3-hoverable w3-white">
               
-              {% for most_view in most_view_list: %}
+              {% for most_view in most_view_list %}
               <!--element-->
               <li class="w3-margin-8">
-                <a href="/{{ most_view['name'] }}">
-                <img src="{{ most_view['thumbnail_link'] }}" alt="Image" class="w3-left w3-margin-right" style="width:100px">
-                <strong>{{ most_view["title"] }}</strong>
+                <a href="/{{ most_view.name }}">
+                <img src="{{ most_view.thumbnail_link }}" alt="Image" class="w3-left w3-margin-right" style="width:100px">
+                <strong>{{ most_view.title }}</strong>
               </a>
               </li>
               <!--end element-->
@@ -637,7 +638,7 @@
               <li class="l2 tax-kham-pha-khoa-hoc">
                 <a href="/khoa-hoc">
                   <img
-                    src="{{ url_for('static', path='/images/khoahoc.webp') }}"
+                    src="{% static '/images/khoahoc.webp' %}"
                     alt="khoa-hoc"
                   />
                   Khoa học
@@ -647,7 +648,7 @@
               <li class="l2 tax-lich-su">
                 <a href="/lich-su">
                   <img
-                    src="{{ url_for('static', path='/images/lichsu.webp') }}"
+                    src="{% static '/images/lichsu.webp' %}"
                     alt="lich-su"
                   />
                   Lịch sử
@@ -657,7 +658,7 @@
               <li class="l2 tax-cong-trinh">
                 <a href="/dia-ly">
                   <img
-                    src="{{ url_for('static', path='/images/dialy.png') }}"
+                    src="{% static '/images/dialy.png' %}"
                     alt="dia-ly"
                   />
                   Địa lý
@@ -667,7 +668,7 @@
               <li class="l2 tax-sinh-vat-hoc">
                 <a href="/sinh-hoc">
                   <img
-                    src="{{ url_for('static', path='/images/sinhhoc.webp') }}"
+                    src="{% static '/images/sinhhoc.png' %}"
                     alt="sinh-hoc"
                   />
                   Sinh học
@@ -686,7 +687,7 @@
               <li class="l2 tax-tai-sao">
                 <a href="/10-van-cau-hoi-vi-sao">
                   <img
-                    src="{{ url_for('static', path='/images/visao.webp') }}"
+                    src="{% static '/images/visao.webp' %}"
                     alt="10-van-cau-hoi-vi-sao"
                   />
                   Vì sao ?
@@ -696,7 +697,7 @@
               <li class="l2 tax-su-that-thu-vi">
                 <a href="/su-that-thu-vi">
                   <img
-                    src="{{ url_for('static', path='/images/suthat.png') }}"
+                    src="{% static '/images/suthat.png' %}"
                     alt="su-that-thu-vi"
                   />
                   Sự thật thú vị
@@ -706,7 +707,7 @@
               <li class="l2 tax-1001-bi-an">
                 <a href="/1001-bi-an">
                   <img
-                    src="{{ url_for('static', path='/images/bian.webp') }}"
+                    src="{% static '/images/bian.png' %}"
                     alt="1001-bi-an"
                   />
                   1001 bí ẩn
@@ -715,7 +716,7 @@
               <li class="l2 tax-kien-truc-doc-dao" style="user-select: auto">
                 <a href="/kien-truc-doc-dao" style="user-select: auto">
                   <img
-                    src="{{ url_for('static', path='/images/kientrucdocdao.webp') }}"
+                    src="{% static '/images/kientrucdocdao.png' %}"
                     alt="kien-truc-doc-dao"
                     style="user-select: auto"
                   />
@@ -725,7 +726,7 @@
               <li class="l2 tax-danh-nhan-the-gioi">
                 <a href="/danh-nhan-the-gioi">
                   <img
-                    src="{{ url_for('static', path='/images/danhnhan.webp') }}"
+                    src="{% static '/images/danhnhan.webp' %}"
                     alt="danh-nhan-the-gioi"
                   />
                   Danh nhân thế giới
@@ -735,7 +736,7 @@
               <li class="l2 tax-the-gioi-dong-vat">
                 <a href="/the-gioi-dong-vat">
                   <img
-                    src="{{ url_for('static', path='/images/dongvat.webp') }}"
+                    src="{% static '/images/dongvat.webp' %}"
                     alt="the-gioi-dong-vat"
                   />
                   Thế giới động vật
@@ -754,7 +755,7 @@
               <li class="l2 tax-yhoc">
                 <a href="/y-hoc-suc-khoe">
                   <img
-                    src="{{ url_for('static', path='/images/yhoc.webp') }}"
+                    src="{% static '/images/yhoc.webp' %}"
                     alt="y-hoc-suc-khoe"
                     style="user-select: auto"
                   />
