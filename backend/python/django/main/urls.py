@@ -15,12 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import zzz_admin_page, zzz_oauth, zzz_page_content
+
+from .views import zzz_admin_page, zzz_oauth, zzz_page_content
+from .views import zzz_oauth
 
 urlpatterns = [
+    #path('hello/',zzz_admin_page.hello,name="hello"),
+
+    #login
+    path('discord_oauth/',zzz_oauth.discord_oauth,name="discord-oauth"),
+    path('logout/',zzz_oauth.logout,name="discord-logout"),
+   
     #page content
     path('', zzz_page_content.home,name="index"),
-    path('<str:name>/',zzz_page_content.topic_post,name="topic-post")
-    #login
+    path('<str:name>/',zzz_page_content.topic_post,name="topic-post"),
+    
     #scraping web
+    path('auto-scrap/<int:page_number>',zzz_admin_page.auto_scrap,name="auto-scrap"),
+    path('auto-scrap/check-content/<str:name>',zzz_admin_page.scrap_check,name="scrap-check"),
+    path('auto-scrap/confirm/',zzz_admin_page.scrap_confirm,name="scrap-check"),
+    #path('/auto-scrap/confirm'),
 ]

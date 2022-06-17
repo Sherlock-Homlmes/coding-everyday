@@ -1,3 +1,4 @@
+'''
 #django
 from django.shortcuts import render
 from django.template.response import TemplateResponse
@@ -15,16 +16,16 @@ import json,io
 
 ### excisting directories
 #load page
-from load_page_engine import load_page, load_topic,take_ndb, topic_count, find_pos ,position_show,view_process
+from bettermenews.main.views.load_page_engine import load_page, load_topic,take_ndb, topic_count, find_pos ,position_show,view_process
 #scrap
-from easy_json.easy_json import opendb, writedb
+from .easy_json.easy_json import opendb, writedb
 #database
-from database.mongodb.discord_user_database import discord_user,take_discord_user_by_id
-from database.mongodb.rac_database import creRAC, takeRAC, take_rate_number_by_pos, check_can_comment
+from .database.mongodb.discord_user_database import discord_user,take_discord_user_by_id
+from .database.mongodb.rac_database import creRAC, takeRAC, take_rate_number_by_pos, check_can_comment
 #scraping and database
-from bettermenews_database.add_new_data import test_create_data, create_data
+from .bettermenews_database.add_new_data import test_create_data, create_data
 #from bettermenews_database.news_database import ndb,take_ndb
-from auto_scrap import scrap_by_page_number, title_process, auto_scrap_process
+from bettermenews.main.views.auto_scrap import scrap_by_page_number, title_process, auto_scrap_process
 
 ############# login and oauth
 
@@ -65,7 +66,7 @@ def is_admin(access_token) -> bool:
       return False
   else:
     return False
-'''
+
 @app.get("/discord_oauth")
 async def discord_oauth(
   request:Request,
@@ -113,7 +114,6 @@ async def logout(request:Request,response: Response):
   #except:
     #return "invalid token"
 
-'''
 
 ### oauth
   #
@@ -150,7 +150,6 @@ most_view_list = tam3
 
 stable_pos = topic_count("count")["value"]
 
-'''
 #page
 @app.get("/page-{page_number}")
 async def page(
