@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <form action="/scraping" target="_parent" method="post">
+      <!--url and pic-->
+      <h1>URL</h1>
+      <input name="url"               type="text" placeholder="url"  id="url"  required style="min-width: 800px;min-height: 50px;">
+      <input name="name"              type="text" placeholder="name" id="name" required style="min-width: 600px;min-height: 50px;"><br>
+      <h4>Html type</h4>
+      <input name="html_type"         type="radio" id="normal" placeholder="html_type" required value="normal">
+      <label for="normal">Normal</label><br>
+      <input name="html_type"         type="radio" id="horror" placeholder="html_type" required value="horror">
+      <label for="horror">Horror</label><br>
+      <br><br>
+
+
+      <h4>Pic link</h4>
+      <input name="pic_link"    type="text" placeholder="pic_link" style="min-width: 500px;" value="None"><br>
+
+      <h4>Description(sửa nếu sai)</h4>
+      <input name="description"   type="text" placeholder="description" style="min-width: 800px;" value="None"><br>
+
+      <!--tags-->
+      <h1>Tags</h1>
+      {% for topic in topics:%}
+      <input name="tags"              type="checkbox" id="{{topic}}"value="{{topic}}">
+      <label for="{{topic}}">{{topic}}</label><br>
+      {% endfor %}
+
+
+      <br>
+      
+      <div class="container">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Thêm dữ liệu</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+              </div>
+              <div class="modal-body">
+                <p>Hãy xác nhận 1 lần nữa các thông tin điền là đúng</p>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-default">Xác nhận</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </form>
+
+<script type="text/javascript">
+  let url = document.getElementById("url");
+  let name = document.getElementById("name");
+
+  url.addEventListener("change", (event) => {
+      let value = event.target.value;
+
+      value = value.replace('https://khoahoc.tv/','');
+      value = value.split('-');
+      value.pop();
+      value = value.join('-');
+      console.log(value);
+
+      name.setAttribute("value", value);
+  });
+</script>
+
+
+</body>
+
+</html>

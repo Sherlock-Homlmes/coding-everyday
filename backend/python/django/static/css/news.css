@@ -1,4 +1,4 @@
-    <style>
+
       /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
       .pswp {
         display: none;
@@ -842,7 +842,7 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        background: #666\9;
+        background: #666;
         background: rgba(80, 80, 80, 0.75);
         width: 100%;
       }
@@ -1376,39 +1376,12 @@
         left: 20px;
         top: 20px;
       }
-      .sidebar .navbar,
+      .sidebar,
       .sidebar .adbox,
       .sidebar .listbox {
         margin: 0 auto 20px auto;
       }
-      .navbar {
-        border-bottom: 1px solid #eee;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-      }
-      .navbar .title {
-        font-size: 1.4em;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 5px;
-        margin-bottom: 5px;
-      }
-      .navbar .navigation li {
-        line-height: 20px;
-        width: 50%;
-        float: left;
-      }
-      .navbar .navigation li a {
-        display: block;
-        padding: 5px 0;
-      }
-      .navbar .navigation li img {
-        vertical-align: middle;
-        padding-right: 10px;
-        height: 32px;
-        width: 32px;
-        background: url(/themes/default/images/noimage.png) center no-repeat;
-        background-size: 24px;
-      }
+
       .navigation > li.actived > a {
         color: #ff4500;
       }
@@ -1830,7 +1803,7 @@
         line-height: 34px;
         margin-bottom: 0;
       }
-      .taxonomypage .navbar .title {
+      .taxonomypage .title {
         display: none;
       }
       .taxonomypage .taxdesc {
@@ -2126,7 +2099,7 @@
         #topnav li {
           display: none;
         }
-        .navbar .navigation li {
+        .navigation li {
           width: auto;
           float: none;
         }
@@ -2533,5 +2506,5 @@
   color:green;
 }
 .topic-space{
-  min-height: 40px;
+  min-height: 30px;
 }
